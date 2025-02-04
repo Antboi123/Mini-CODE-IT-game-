@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>Mini CODE IT game!</title>
+</head>
+<body>
+  <div class="begin">
+  <h1 class="heading1">
+    Welcome to my game, made for  :      <div class="codeit">CODE IT! </div>
+    <style>
+   .begin {
+     box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+     border-radius: 10px;
+     background: rgba(100, 100, 100, 0.8);
+     padding: 20px;
+     text-align: center;
+     }
+    html{
+      background-color: silver;
+      font-family: sans-serif;
+    }
+    .codeit {
+      background: linear-gradient( 90deg, rgba(100, 50, 200, 100%), rgba(200, 255, 50, 100%), rgba(0, 127, 127, 100%), rgba(223, 222, 142, 100%)); 
+      border-radius: 30px;
+      padding: 15px
+    }
+    .p1{
+      background-color:white;
+      padding: 10px;
+      border-radius: 20px;
+      text-align: center;
+    }
+    h2{
+      text-align: center;
+      background-color: white;
+      padding: 10px;
+      border-radius: 25px;
+    }
+    .input {
+      background: linear-gradient( 90deg, rgba(100, 50, 200, 100%), rgba(200, 255, 50, 100%), rgba(0, 127, 127, 100%), rgba(223, 222, 142, 100%)); 
+      border-radius: 30px;
+      padding: 15px;
+      border-color: black;
+    }
+    .button {
+      padding: 10px;
+      background: white;
+      border-radius: 40px;
+    }
+    .p2 {
+      background: linear-gradient( 90deg, rgba(100, 50, 200, 100%), rgba(200, 255, 50, 100%), rgba(0, 127, 127, 100%), rgba(223, 222, 142, 100%)); 
+      border-radius: 30px;
+      padding: 15px;
+      text-align: center;
+    }
+    .result{
+      background: linear-gradient( 90deg, rgba(100, 50, 200, 100%), rgba(200, 255, 50, 100%), rgba(0, 127, 127, 100%), rgba(223, 222, 142, 100%)); 
+      border-radius: 30px;
+      padding: 15px;
+      text-align: center;
+    }
+    .p2 {
+      border-radius: 30px;
+      padding: 15px;
+      text-align: center;
+      background-color: yellow;
+    }
+    .p3 {
+      background: burlywood;
+      border-radius: 30px;
+      padding: 15px;
+      text-align: center;
+    }
+    </style>
+  </h1>
+  </div>
+  <h2>This is a simple game, but im not able to use javascript well, so i have used Chatgpt to help me!</h2>
+  <div class="p1"><p> For this, i'll be making a number guessing game!</p></div>
+  
+  <p class="p2">
+    Guess a number from 1 to 100! :
+  </p>
+  <input type="number" id="guessInput" class="input">
+  <button onclick="checkGuess()" class="button">Submit guess!</button>
+  <p id="result" class="result">Nothing here yet...</p>
+  
+  <script>
+let randomNumber = Math.floor(Math.random() * 100) + 1; // Generate initial random number
+
+function checkGuess() {
+    let userGuess = document.getElementById("guessInput").value;
+    let result = document.getElementById("result");
+
+    userGuess = Number(userGuess); // Convert input to a number
+
+    if (userGuess === randomNumber) {
+        result.textContent = "🎉 Correct! A new number has been chosen. Find the new number!";
+        randomNumber = Math.floor(Math.random() * 100) + 1; // Generate a new number
+    } else if (userGuess > randomNumber) {
+        result.textContent = "📉 Too high! Try again.";
+    } else if (userGuess < randomNumber) {
+        result.textContent = "📈 Too low! Try again.";
+    } else {
+        result.textContent = "❌ Invalid input. Please enter a number.";
+    }
+
+    // Clear input field for the next guess
+    document.getElementById("guessInput").value = "";
+}
+  </script> 
+  <p class="p3">Thank you so much to ChatGpt for the Javascript!</p>
+  
+</body>
+</html>
